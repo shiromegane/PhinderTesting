@@ -50,6 +50,8 @@ var_dump($app);
 
 $kernel = $app->make(Kernel::class);
 
+var_dump($kernel);
+
 $response = tap($kernel->handle(
     $request = Request::capture()
 ))->send();
