@@ -6,6 +6,7 @@ on:
 
 jobs:
   phplint:
+    name: Exec PHP Lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -13,5 +14,5 @@ jobs:
       - name: Checking PHP syntax error
         uses: overtrue/phplint@master
         with:
-          path: ./laravel
+          path: .
           options: --exclude=*.log
