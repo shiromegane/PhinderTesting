@@ -1,16 +1,8 @@
-name: PHPLint
-on:
-  push:
-  pull_request:
-    types: edited
-
+name: PHP Lint
+on: pull_request
 jobs:
   phplint:
-    name: PHPLint
     runs-on: ubuntu-latest
     steps:
-      - name: Exec PHPLint
-        uses: overtrue/phplint@master
-        with:
-          path: .
-          options: --exclude=*.log
+      - uses: actions/checkout@v1
+      - uses: michaelw90/PHP-Lint@master
