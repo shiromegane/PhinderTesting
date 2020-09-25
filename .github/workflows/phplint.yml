@@ -1,5 +1,6 @@
 name: PHPLint
 on:
+  push:
   pull_request:
     types: edited
 
