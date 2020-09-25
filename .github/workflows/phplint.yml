@@ -1,8 +1,17 @@
-name: PHP Lint
-on: pull_request
+name: PHPLint
+on:
+  push:
+  pull_request:
+    types: edited
+
 jobs:
   phplint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: michaelw90/PHP-Lint@master
+      - name: Checkout code
+        uses: actions/checkout@master
+      - name: Checking PHP syntax error
+        uses: overtrue/phplint@master
+        with:
+          path: ./laravel
+          options: --exclude=*.log
