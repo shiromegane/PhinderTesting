@@ -12,19 +12,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@master
         with:
+          ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
-      - name: Install PHP_CodeSniffer
-        run: |
-          curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
-          php phpcs.phar --version
       - name: Checking PHP syntax error
         uses: overtrue/phplint@master
         with:
           path: .
           options: --exclude=*.log
-      - name: Checking PHP code rules
-        uses: tinovyatkin/action-php-codesniffer@v1
+      - name: Checking PHP coding rules
+        uses: rtCamp/action-phpcs-code-review@v2.0.3
+        env:
+          GH_BOT_TOKEN: ${{ secrets.GH_BOT_TOKEN }}
+          SKIP_FOLDERS: "tests,.github"
+          PHPCS_SNIFFS_EXCLUDE: "WordPress.Files.FileName"
         with:
-          files: "**.php"
-          phpcs_path: php phpcs.phar
-          standard: phpcs.xml
+          args: "PSR12"
