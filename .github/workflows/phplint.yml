@@ -1,19 +1,14 @@
+on: pull_request
 name: PHPLint
-on:
-  push:
-  pull_request:
-    types: edited
-
 jobs:
   phplint:
     name: Exec PHP Lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-          fetch-depth: 0
       - name: Checking PHP syntax error
         uses: overtrue/phplint@master
         with:
