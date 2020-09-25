@@ -1,6 +1,3 @@
-ignore:
-  - ./vendor
-  - ./laravel/vendor
 rule:
   - # The rule identifier. It must be unique in the YAML file.
     id: sample.var_dump
@@ -30,3 +27,6 @@ rule:
       pass:
         - in_array(3, $arr, true)
         - in_array(4, $arr, false)
+ignore:
+  - ./vendor
+  - ./laravel/vendor
