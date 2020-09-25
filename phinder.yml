@@ -1,7 +1,7 @@
 rule:
-  - id: Remove var_dump
+  - id: Do not use var_dump
     pattern: var_dump(...)
-    message: "'var_dump()'が残っています"
+    message: Please remove var_dump()
     justification: デバッグ中の場合のみ
 
   -id: sample.in_array_without_3rd_param
