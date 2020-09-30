@@ -1,4 +1,9 @@
 linter:
+  code_sniffer:
+    dir: laravel
+    standard: phpcs.xml
+    extensions: php
+    ignore: vendor
   phinder:
     rule: phinder.yml
     php: laravel
