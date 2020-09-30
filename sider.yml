@@ -1,7 +1,7 @@
 linter:
   code_sniffer:
-    dir: laravel
+    dir: .
     standard: phpcs.xml
   phinder:
     rule: phinder.yml
-    php: laravel
+    php: .
