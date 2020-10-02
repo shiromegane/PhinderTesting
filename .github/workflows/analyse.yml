@@ -6,8 +6,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
+      - name: Install dependencies
+        uses: php-actions/composer@master
+        with:
+          command: update
       - name: PHP Analyse dog
         uses: shiromegane/php-analyse-dog@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          enable_phpstan: true
+          enable_phpmd: true
+          enable_phpcs: true
+          enable_phinder: true
           phpcs_args: '--standard=phpcs.xml --report=json -q .'
