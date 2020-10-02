@@ -1,0 +1,7 @@
+linter:
+  code_sniffer:
+    dir: .
+    standard: phpcs.xml
+  phinder:
+    rule: phinder.yml
+    php: .
